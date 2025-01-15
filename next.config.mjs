@@ -1,3 +1,4 @@
+
 /** @type {import('next').NextConfig} */
 import path from 'path';
 
@@ -8,7 +9,7 @@ export default {
 webpack: (config) => {
 config.resolve.alias = {
 ...config.resolve.alias,
-'@': path.resolve(__dirname),
+'@': path.resolve(new URL('.', import.meta.url).pathname),
 };
 return config;
 },
