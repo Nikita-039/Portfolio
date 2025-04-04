@@ -90,26 +90,30 @@ export const assets = {
 
 export const workData = [
     {
-        title: 'Frontend project',
-        description: 'Web Design',
-        bgImage: '/work-1.png',
+        title: "E-commerce Website",
+        description: "A full-stack e-commerce platform with authentication, product management, and Stripe payment integration.",
+        bgImage: assets.project_one,  // Use your actual project image
+        link: "https://forever-frontend-lake-three.vercel.app/"
     },
     {
-        title: 'Geo based app',
-        description: 'Mobile App',
-        bgImage: '/work-2.png',
+        title: "Spotify Clone",
+        description: "A music streaming platform built using Next.js and Firebase, featuring user authentication and music playback.",
+        bgImage: assets.project_two,
+        link: "https://spotify-pi-two.vercel.app/"
     },
     {
-        title: 'Photography site',
-        description: 'Web Design',
-        bgImage: '/work-3.png',
+        title: "Blogging Website",
+        description: "A blogging platform with a rich text editor, user profiles, and real-time content updates.",
+        bgImage: assets.project_three,
+        link: "https://github.com/Nikita-039/blog-website"
     },
     {
-        title: 'UI/UX designing',
-        description: 'UI/UX Design',
-        bgImage: '/work-4.png',
-    },
-]
+        title: "Task Manager Website",
+        description: "A full-stack task management application with user authentication and task tracking.",
+        bgImage: assets.project_four,
+        link: "https://github.com/Nikita-039/Task-Manager"
+    }
+];
 
 export const serviceData = [
     { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
