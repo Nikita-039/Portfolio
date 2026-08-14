@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -37,6 +38,7 @@ useEffect(()=>{
     <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
     <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
     <About isDarkMode={isDarkMode}  setIsDarkMode={setIsDarkMode}/>
+    <Experience isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
     <Services isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
     <Work isDarkMode={isDarkMode}  setIsDarkMode={setIsDarkMode}/>
     <Contact isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />

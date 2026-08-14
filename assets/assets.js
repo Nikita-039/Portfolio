@@ -1,6 +1,7 @@
 import user_image from './user-image.png';
 import project_one from './project-one.png';
 import project_two from './project-two.png';
+import ai_career from './ai-career.png';
 import project_three from './project-three.png';
 import project_four from './project-four.png'
 import code_icon from './code-icon.png';
@@ -85,49 +86,71 @@ export const assets = {
     send_icon,
     right_arrow_bold,
     right_arrow_bold_dark,
-   
+
 };
+
+export const experienceData = [
+    {
+        role: "Frontend Intern",
+        company: "KompGlobal",
+        period: "Jan 2026 – Present",
+        description: [
+            "Working on frontend concepts using React.js with a focus on building scalable and maintainable UI components.",
+            "Learning and implementing state management patterns using Redux and Redux Toolkit to handle application-level state effectively.",
+            "Practicing component-based design and understanding data flow between components.",
+            "Following clean code principles, reusable components, and consistent UI behavior.",
+            "Actively upskilling in modern frontend tools and workflows under guidance of the technical team."
+        ]
+    },
+    {
+        role: "Full Stack Web Developer Intern",
+        company: "Edunet Foundation",
+        period: "Feb 2025 – March 2025",
+        description: [
+            "Engineered an online bidding application with JWT-based user authentication and real-time auction capabilities.",
+            "Crafted a visually appealing and responsive interface using React.js and Bootstrap.",
+            "Implemented a scalable backend architecture with Node.js and MongoDB to ensure seamless performance."
+        ]
+    }
+];
 
 export const workData = [
     {
         title: "E-commerce Website",
-        description: "A full-stack e-commerce platform with authentication, product management, and Stripe payment integration.",
-        bgImage: assets.project_one,  // Use your actual project image
+        description: "Full-stack e-commerce platform featuring secure user authentication with encrypted credentials, Stripe payment gateway, Cash on Delivery options, role-based Admin Panel, and real-time React Toastify notifications.",
+        tech: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
+        bgImage: assets.project_one,
         link: "https://forever-frontend-lake-three.vercel.app/"
     },
     {
-        title: "Spotify Clone",
-        description: "A music streaming platform built using Next.js and Firebase, featuring user authentication and music playback.",
-        bgImage: assets.project_two,
-        link: "https://spotify-pi-two.vercel.app/"
+        title: "AI Career Navigator",
+        description: "Full-stack career assistance platform featuring skill & resume-based job matching via external APIs, server-side PDF text extraction using Multer, and an AI Career Chatbot powered by OpenRouter (Llama 3.1).",
+        tech: ["React", "Node.js", "Express", "MongoDB", "Bootstrap", "Multer", "Llama 3.1"],
+        bgImage: assets.ai_career,
+        link: "#"
     },
     {
-        title: "Blogging Website",
-        description: "A blogging platform with a rich text editor, user profiles, and real-time content updates.",
-        bgImage: assets.project_three,
-        link: "https://github.com/Nikita-039/blog-website"
-    },
-    {
-        title: "Task Manager Website",
-        description: "A full-stack task management application with user authentication and task tracking.",
+        title: "Task Manager",
+        description: "Full-stack task management application enabling real-time status synchronization, dashboard-driven routing for pending/completed tasks, RESTful API integration using Axios, and Vercel production deployment.",
+        tech: ["React.js", "Node.js", "Express", "MongoDB", "Axios", "React Router"],
         bgImage: assets.project_four,
         link: "https://github.com/Nikita-039/Task-Manager"
     }
 ];
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
-]
+    { icon: assets.web_icon, title: 'Full Stack Development', description: 'Building scalable, responsive web applications using React.js, Node.js, Express.js, and MongoDB with clean architecture.', link: '#projects' },
+    { icon: assets.code_icon, title: 'Backend & REST APIs', description: 'Engineering secure RESTful APIs, JWT authentication, MongoDB database management, and Stripe payment integration.', link: '#projects' },
+    { icon: assets.ui_icon, title: 'Frontend & UI Engineering', description: 'Crafting interactive UI components with React.js, Redux/Redux Toolkit, component-based design, and modern CSS frameworks.', link: '#projects' },
+    { icon: assets.graphics_icon, title: 'Logic Building & DSA', description: 'Applying core Data Structures and Algorithms in Java to solve real-world problems and optimize software performance.', link: '#projects' },
+];
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'B.Tech in Computer Science' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 5 projects' }
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages & Skills', description: 'Java, DSA, JavaScript, React.js, Redux, Node.js, Express, MongoDB' },
+    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'B.Tech in Information Technology, MAIT (2022 - 2026) • 8 CGPA' },
+    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'E-Commerce Website, AI Career Navigator, Task Manager' }
 ];
 
 export const toolsData = [
-    assets.vscode, assets.firebase, assets.mongodb, assets.figma, assets.git
+    assets.vscode, assets.mongodb, assets.git, assets.figma
 ];

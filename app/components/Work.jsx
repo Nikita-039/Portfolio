@@ -1,15 +1,15 @@
-import { workData } from '@/assets/assets';  
+import { workData, assets } from '@/assets/assets';  
 import Image from 'next/image';
 import React from 'react';
 import { motion } from "motion/react";
 
-const Work = () => {
+const Work = ({ isDarkMode }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      id='work' className='w-full px-[12%] py-10 scroll-mt-20'
+      id='projects' className='w-full px-[12%] py-10 scroll-mt-20'
     >
       <motion.h4
         initial={{ y: -20, opacity: 0 }}
@@ -25,15 +25,15 @@ const Work = () => {
         transition={{ delay: 0.5, duration: 0.5 }}
         className='text-center text-5xl font-Ovo'
       >
-        My Latest Work
+        Featured Projects
       </motion.h2>
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.5 }}
-        className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'
+        className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo text-gray-600 dark:text-white/80'
       >
-        Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end and full-stack development.
+        Explore my full-stack web development projects built with React, Node.js, Express, MongoDB, and modern AI integrations.
       </motion.p>
 
       {/* PROJECT CARDS */}
@@ -41,39 +41,58 @@ const Work = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.6 }}
-        className='grid grid-cols-1 sm:grid-cols-2 gap-6 my-10'
+        className='grid grid-cols-1 md:grid-cols-3 gap-6 my-10'
       >
         {workData.map((project, index) => (
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.03 }}
             key={index} 
-            className='border border-gray-400 rounded-lg overflow-hidden px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white'
+            className='border border-gray-400 rounded-xl overflow-hidden p-6 hover:shadow-xl cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:border-white/30 dark:hover:bg-darkHover dark:hover:shadow-white/10 flex flex-col justify-between'
           >
-            {/* Project Image */}
-            <Image 
-              src={project.bgImage} 
-              alt={project.title} 
-              width={500}  
-              height={300} 
-              className="w-full h-48 object-cover rounded-lg"
-              loading="lazy"
-            />
-            
-            {/* Project Details */}
-            <div className="mt-5">
-              <h3 className="text-lg text-gray-700 dark:text-white">{project.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-white/80 mt-2">{project.description}</p>
+            <div>
+              {/* Project Image */}
+              <Image 
+                src={project.bgImage} 
+                alt={project.title} 
+                width={500}  
+                height={300} 
+                className="w-full h-48 object-cover rounded-lg"
+                loading="lazy"
+              />
               
-              {/* Button for Live Demo / GitHub */}
+              {/* Project Details */}
+              <div className="mt-5">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white font-Ovo">{project.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-white/80 mt-2 leading-relaxed">{project.description}</p>
+                
+                {/* Tech badges */}
+                {project.tech && (
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {project.tech.map((t, idx) => (
+                      <span key={idx} className="px-2.5 py-1 text-xs rounded-md bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 font-medium">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Button for Live Demo / GitHub */}
+            {project.link && project.link !== '#' ? (
               <a 
                 href={project.link} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-2 text-sm mt-5 text-blue-600 dark:text-blue-400 hover:underline"
+                className="flex items-center gap-2 text-sm font-semibold mt-6 text-blue-600 dark:text-blue-400 hover:underline"
               >
-                View Project <img src="/right-arrow.png" alt="" className="w-4" />
+                Live Demo / Code <Image src={isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold} alt="" className="w-3.5" />
               </a>
-            </div>
+            ) : (
+              <span className="text-xs text-gray-500 dark:text-white/60 mt-6 inline-block">
+                Project Code / Live Demo Available
+              </span>
+            )}
           </motion.div>
         ))}
       </motion.div>

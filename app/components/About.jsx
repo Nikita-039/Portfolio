@@ -39,9 +39,8 @@ const About = ({isDarkMode}) => {
          whileInView={{opacity:1}}
          transition={{duration:0.6, delay:0.8}}
         className='flex-1'>
-            <p className='mb-10 max-w-2xl font-Ovo'>
-            As a Full Stack Web Developer and Software Engineer, I'm passionate about crafting innovative solutions that bring ideas to life. When I'm not coding, you can find me immersed in nature, where I draw inspiration from the world around me. I'm also an avid bookworm, often getting lost in the pages of a good novel.
-
+            <p className='mb-10 max-w-2xl font-Ovo text-gray-700 dark:text-white/80 leading-relaxed'>
+            Java and Full Stack Web Developer with hands-on experience in building scalable applications and solving real-world problems using Data Structures and Algorithms. Proficient in both frontend and backend technologies and database management, with a strong foundation in core Java and algorithmic problem-solving.
             </p>
             <motion.ul
              initial ={{opacity: 0}}
