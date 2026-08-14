@@ -1,6 +1,5 @@
 import user_image from './user-image.png';
 import project_one from './project-one.png';
-import project_two from './project-two.png';
 import ai_career from './ai-career.png';
 import project_three from './project-three.png';
 import project_four from './project-four.png'
@@ -46,7 +45,6 @@ import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 export const assets = {
     user_image,
     project_one,
-    project_two,
     project_three,
     project_four,
     code_icon,
