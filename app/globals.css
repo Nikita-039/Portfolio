@@ -2,6 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  font-family: Outfit;
+@layer base {
+  * {
+    font-family: 'Plus Jakarta Sans', Outfit, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* Statxo signature gradient text */
+.statxo-gradient {
+  background: linear-gradient(135deg, #a12a78 0%, #d04c36 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Statxo primary button gradient */
+.statxo-btn-gradient {
+  background: linear-gradient(135deg, #a12a78 0%, #d04c36 100%);
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.statxo-btn-gradient:hover {
+  box-shadow: 0 10px 25px -5px rgba(161, 42, 120, 0.4), 0 8px 10px -6px rgba(208, 76, 54, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Glassmorphism card utility */
+.statxo-card {
+  @apply bg-white/70 dark:bg-darkCard/70 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 rounded-2xl transition-all duration-300;
+}
+
+.statxo-card:hover {
+  @apply border-brand/40 dark:border-brand/40 shadow-xl shadow-brand/5 -translate-y-1;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(161, 42, 120, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 42, 120, 0.4);
 }

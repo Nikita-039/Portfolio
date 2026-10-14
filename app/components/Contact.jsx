@@ -1,91 +1,123 @@
-import { assets } from '@/assets/assets'
-import React, { useState } from 'react'
-import Image from 'next/image'
-import { motion } from "motion/react"
-const Contact = () => {
+import { assets } from '@/assets/assets';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { motion } from "motion/react";
 
-    const [result, setResult] = useState("");
+const Contact = () => {
+  const [result, setResult] = useState("");
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Sending....");
+    setResult("Sending message...");
     const formData = new FormData(event.target);
 
     formData.append("access_key", "c51e162a-e8d2-4525-bd61-43602136de94");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.success) {
-      setResult("Form Submitted Successfully");
-      event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
+      if (data.success) {
+        setResult("Thank you! Your message has been sent successfully.");
+        event.target.reset();
+      } else {
+        setResult(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setResult("Network error. Please try again later.");
     }
   };
 
   return (
     <motion.div
-    initial = {{opacity:0}}
-    whileInView={{opacity:1}}
-    transition={{duration:1}}
-    id='contact' className='w-full px-[12%] py-10 scroll-mt-20 '>
-        <div className='fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]'>
-               
-            </div>
-       <motion.h4
-        initial = {{ y: -20,opacity:0}}
-        whileInView={{ y: 0,opacity:1}}
-        transition={{delay:0.3, duration:0.5}}
-       className='text-center mb-2 text-lg font-Ovo'>Connect with me</motion.h4>
-      <motion.h2 
-      initial = {{ y: -20,opacity:0}}
-      whileInView={{ y: 0,opacity:1}}
-      transition={{delay:0.5, duration:0.5}}
-      className='text-center text-5xl font-Ovo'>Get in touch</motion.h2>
-      <motion.p
-      initial = {{ opacity:0}}
-      whileInView={{ opacity:1}}
-      transition={{delay:0.7, duration:0.5}}
-      className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'>
-      I'd love to hear from you! if you have any questions, comments, or feedback, please use the form below.
-      </motion.p>
-      <motion.form 
-      initial = {{ opacity:0}}
-      whileInView={{ opacity:1}}
-      transition={{delay:0.9, duration:0.5}}
-      onSubmit={onSubmit} className='max-w-2xl mx-auto'>
-        <div className='grid grid-cols-auto gap-6 mt-10 mb-8'>
-            <motion.input
-            initial = {{ x:-50,opacity:0}}
-            whileInView={{ x: 0,opacity:1}}
-            transition={{delay:1.1, duration:0.6}}
-            type="text" placeholder='Enter your name' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90' required  name='name'/>
-            <motion.input
-             initial = {{ x:50,opacity:0}}
-             whileInView={{ x: 0,opacity:1}}
-             transition={{delay:1.2, duration:0.6}}
-            type="email" placeholder='Enter your email' className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white  dark:bg-darkHover/30 dark:border-white/90' required name='email' />
-        </div>
-        <motion.textarea 
-          initial = {{ y:100,opacity:0}}
-          whileInView={{ y: 0,opacity:1}}
-          transition={{delay:1.3, duration:0.6}}
-        rows='6' placeholder='Enter your message' required className='w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6  dark:bg-darkHover/30 dark:border-white/90' name='message'></motion.textarea>
-        <motion.button
-        whileHover={{scale: 1.05}}
-        transition={{duration:0.3}}
-        className='py-3 px-8 w-max flex items-center justify-between gap-2 bg-black text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover' type='submit'>Submit now <Image src={assets.right_arrow_white} alt='' className='w-4'/> </motion.button>
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      id='contact' 
+      className='w-full px-[8%] sm:px-[12%] py-16 scroll-mt-20'
+    >
+      <div className='text-center'>
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className='inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-rose-50/80 text-brand border border-rose-200/70 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-900/60 shadow-sm mb-3'
+        >
+          <span>05 // LET'S TALK</span>
+        </motion.div>
 
-        <p className='mt-4'>{result}</p>
+        <motion.h2 
+          initial={{ y: -15, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className='text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white'
+        >
+          Start a <span className='statxo-gradient'>Conversation</span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className='max-w-xl mx-auto mt-4 mb-12 text-base text-slate-600 dark:text-slate-300 leading-relaxed'
+        >
+          Whether you're interested in collaborating on full-stack web applications, discussing roles, or exploring tech opportunities, I'd love to connect.
+        </motion.p>
+      </div>
+
+      <motion.form 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        onSubmit={onSubmit} 
+        className='statxo-card p-8 sm:p-10 max-w-2xl mx-auto shadow-soft'
+      >
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5'>
+          <input
+            type="text" 
+            placeholder='Your name' 
+            className='p-3.5 outline-none border border-slate-200 dark:border-slate-800 rounded-xl bg-white/70 dark:bg-slate-900/70 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:border-brand dark:focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all text-sm' 
+            required 
+            name='name'
+          />
+          <input
+            type="email" 
+            placeholder='Your email' 
+            className='p-3.5 outline-none border border-slate-200 dark:border-slate-800 rounded-xl bg-white/70 dark:bg-slate-900/70 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:border-brand dark:focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all text-sm' 
+            required 
+            name='email' 
+          />
+        </div>
+
+        <textarea 
+          rows='5' 
+          placeholder='How can I help you?' 
+          required 
+          className='w-full p-4 outline-none border border-slate-200 dark:border-slate-800 rounded-xl bg-white/70 dark:bg-slate-900/70 text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:border-brand dark:focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all text-sm mb-6 resize-none' 
+          name='message'
+        ></textarea>
+
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ duration: 0.2 }}
+          className='statxo-btn-gradient py-3.5 px-8 rounded-full text-sm font-semibold tracking-wide uppercase flex items-center justify-center gap-2.5 mx-auto shadow-md' 
+          type='submit'
+        >
+          Send Message 
+          <Image src={assets.right_arrow_white} alt='' className='w-3.5'/>
+        </motion.button>
+
+        {result && (
+          <p className='mt-4 text-center text-sm font-medium statxo-gradient'>{result}</p>
+        )}
       </motion.form>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

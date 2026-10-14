@@ -45,6 +45,7 @@ import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 export const assets = {
     user_image,
     project_one,
+    ai_career,
     project_three,
     project_four,
     code_icon,
@@ -89,15 +90,14 @@ export const assets = {
 
 export const experienceData = [
     {
-        role: "Frontend Intern",
+        role: "SDE Intern",
         company: "KompGlobal",
-        period: "Jan 2026 – Present",
+        period: "Jan 2026 – Oct 2026",
         description: [
-            "Working on frontend concepts using React.js with a focus on building scalable and maintainable UI components.",
-            "Learning and implementing state management patterns using Redux and Redux Toolkit to handle application-level state effectively.",
-            "Practicing component-based design and understanding data flow between components.",
-            "Following clean code principles, reusable components, and consistent UI behavior.",
-            "Actively upskilling in modern frontend tools and workflows under guidance of the technical team."
+            "Developed and maintained React.js interfaces for Timesheet, Client, and Candidate management modules in a production application.",
+            "Implemented the Forgot Password functionality, including form validation, API integration, and user feedback handling.",
+            "Fixed production and QA-reported bugs, improving application stability and user experience.",
+            "Collaborated with backend developers and QA teams to deliver feature enhancements and resolve application issues."
         ]
     },
     {
@@ -124,8 +124,8 @@ export const workData = [
         title: "AI Career Navigator",
         description: "Full-stack career assistance platform featuring skill & resume-based job matching via external APIs, server-side PDF text extraction using Multer, and an AI Career Chatbot powered by OpenRouter (Llama 3.1).",
         tech: ["React", "Node.js", "Express", "MongoDB", "Bootstrap", "Multer", "Llama 3.1"],
-        bgImage: assets.ai_career,
-        link: "#"
+        bgImage: ai_career,
+        link: "https://ai-career-navigator-puce.vercel.app/login"
     },
     {
         title: "Task Manager",
